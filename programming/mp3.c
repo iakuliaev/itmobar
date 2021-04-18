@@ -46,27 +46,27 @@ void show(FILE* fp)
 	char lecod[100000];
 	if (fp == NULL)
 		return 0;
-	b = supermegareader(&strings[0], 10, fp);//заголовок
+	b = supermegareader(&strings[0], 10, fp);//Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 	//myprint(strings, 3);
 	memset(strings, 0, 100000);
 	while (b == 1)
 	{
 		if (b == 0)
 			break;
-		b = supermegareader(&strings[0], 4, fp);//id фрейма
+		b = supermegareader(&strings[0], 4, fp);//id ГґГ°ГҐГ©Г¬Г 
 		if (strings[0] != 0)
 			printf("%s: ", strings);
 		memset(strings, 0, 100000);
 		if (strings == "")
 			break;
-		b = supermegareader(&strings[0], 4, fp);//скок байтов надо под хранение инфы
-		tmp = hex(strings, 4);// преобразовали из 16--> в 10
+		b = supermegareader(&strings[0], 4, fp);//Г±ГЄГ®ГЄ ГЎГ Г©ГІГ®Гў Г­Г Г¤Г® ГЇГ®Г¤ ГµГ°Г Г­ГҐГ­ГЁГҐ ГЁГ­ГґГ»
+		tmp = hex(strings, 4);// ГЇГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г«ГЁ ГЁГ§ 16--> Гў 10
 		if (tmp == 0)
 			break;
 		memset(strings, 0, 100000);
 		if (b == 0)
 			break;
-		b = supermegareader(&strings[0], 2, fp);//считывание двух флагов(просто есть)
+		b = supermegareader(&strings[0], 2, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г¤ГўГіГµ ГґГ«Г ГЈГ®Гў(ГЇГ°Г®Г±ГІГ® ГҐГ±ГІГј)
 		memset(strings, 0, 100000);
 		supermegareader(&strings[0], 1, fp);
 		utf = (int)strings[0];
@@ -94,7 +94,7 @@ void show(FILE* fp)
 		memset(strings, 0, 100000);
 		if (utf == 1)
 		{
-			supermegareader(&strings[0], tmp - 3, fp);//считывание самой инфы
+			supermegareader(&strings[0], tmp - 3, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г±Г Г¬Г®Г© ГЁГ­ГґГ»
 			if (le == 1)
 			{
 				for (int c = 0; c < 100000; c++)
@@ -110,7 +110,7 @@ void show(FILE* fp)
 		}
 		else
 		{
-			b = supermegareader(&strings[0], tmp - 1, fp);//считывание самой инфы
+			b = supermegareader(&strings[0], tmp - 1, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г±Г Г¬Г®Г© ГЁГ­ГґГ»
 			if (strings[0] != 0)
 				myprint(strings, tmp - 1);
 			else
@@ -137,13 +137,13 @@ void myget(FILE* fp, char* met)
 	char lecod[100000];
 	if (fp == NULL)
 		return 0;
-	b = supermegareader(&strings[0], 10, fp);//заголовок
+	b = supermegareader(&strings[0], 10, fp);//Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 	memset(strings, 0, 100000);
 	while (b == 1)
 	{
 		if (b == 0)
 			break;
-		b = supermegareader(&strings[0], 4, fp);//id фрейма
+		b = supermegareader(&strings[0], 4, fp);//id ГґГ°ГҐГ©Г¬Г 
 		if ((strings[0] != 0) && (strcmp(strings, met) == 0))
 		{
 			flag = 1;
@@ -152,14 +152,14 @@ void myget(FILE* fp, char* met)
 		memset(strings, 0, 100000);
 		if (strings == "")
 			break;
-		b = supermegareader(&strings[0], 4, fp);//скок байтов надо под хранение инфы
-		tmp = hex(strings, 4);// преобраховали из 16--> в 10
+		b = supermegareader(&strings[0], 4, fp);//Г±ГЄГ®ГЄ ГЎГ Г©ГІГ®Гў Г­Г Г¤Г® ГЇГ®Г¤ ГµГ°Г Г­ГҐГ­ГЁГҐ ГЁГ­ГґГ»
+		tmp = hex(strings, 4);// ГЇГ°ГҐГ®ГЎГ°Г ГµГ®ГўГ Г«ГЁ ГЁГ§ 16--> Гў 10
 		if (tmp == 0)
 			break;
 		memset(strings, 0, 100000);
 		if (b == 0)
 			break;
-		b = supermegareader(&strings[0], 2, fp);//считывание двух флагов
+		b = supermegareader(&strings[0], 2, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г¤ГўГіГµ ГґГ«Г ГЈГ®Гў
 		memset(strings, 0, 100000);
 		supermegareader(&strings[0], 1, fp);
 		utf = (int)strings[0];
@@ -189,7 +189,7 @@ void myget(FILE* fp, char* met)
 		memset(strings, 0, 100000);
 		if (utf == 1)
 		{
-			supermegareader(&strings[0], tmp - 3, fp);//считывание самой инфы
+			supermegareader(&strings[0], tmp - 3, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г±Г Г¬Г®Г© ГЁГ­ГґГ»
 			if (le == 1)
 			{
 				for (int c = 0; c < 100000; c++)
@@ -208,7 +208,7 @@ void myget(FILE* fp, char* met)
 		else
 		{
 		
-			b = supermegareader(&strings[0], tmp - 1, fp);//считывание самой инфы
+			b = supermegareader(&strings[0], tmp - 1, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г±Г Г¬Г®Г© ГЁГ­ГґГ»
 			if ((strings[0] != 0) && (flag == 1))
 				myprint(strings, tmp - 1);
 			else
@@ -251,24 +251,24 @@ void set(FILE* fp, char* param, char* value, char* filename)
 	fseek(fp, 0, SEEK_SET);
 	int a = 0, tmp, b = 1, utf = 0, le = 0, be = 0, flag = 0;
 	char strings[100000];
-	b = supermegareader(&strings[0], 10, fp);//заголовок
+	b = supermegareader(&strings[0], 10, fp);//Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 	memset(strings, 0, 100000);
 	while (b == 1)
 	{
-		b = supermegareader(&strings[0], 4, fp);//id фрейма
+		b = supermegareader(&strings[0], 4, fp);//id ГґГ°ГҐГ©Г¬Г 
 		counter += 4;
 		if ((strings[0] != 0) && (strcmp(strings, param) == 0))
 			flag = 1;
 		memset(strings, 0, 100000);
-		b = supermegareader(&strings[0], 4, fp);//скок байтов надо под хранение инфы
+		b = supermegareader(&strings[0], 4, fp);//Г±ГЄГ®ГЄ ГЎГ Г©ГІГ®Гў Г­Г Г¤Г® ГЇГ®Г¤ ГµГ°Г Г­ГҐГ­ГЁГҐ ГЁГ­ГґГ»
 		counter += 4;
-		tmp = hex(strings, 4);// преобраховали из 16--> в 10
+		tmp = hex(strings, 4);// ГЇГ°ГҐГ®ГЎГ°Г ГµГ®ГўГ Г«ГЁ ГЁГ§ 16--> Гў 10
 		if (tmp == 0)
 			break;
 		memset(strings, 0, 100000);
 		if (b == 0)
 			break;
-		b = supermegareader(&strings[0], 2, fp);//считывание двух флагов
+		b = supermegareader(&strings[0], 2, fp);//Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ Г¤ГўГіГµ ГґГ«Г ГЈГ®Гў
 		counter += 2;
 		memset(strings, 0, 100000);
 		if (flag == 1)
