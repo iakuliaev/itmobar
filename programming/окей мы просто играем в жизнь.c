@@ -3,10 +3,6 @@
 #include <string.h>
 #include <math.h>
 
-// 0 - чёрный //смэрть
-// 1 - белый //Жызнь
-
-//но программа внутри себя автоматом меняет 0 и 1 местами, для удобства
 
 int width = 0;
 int height = 0;
@@ -82,13 +78,13 @@ int** getbitmap(unsigned char* filename)
 		return 0;
 	fread(strings, 18, 1, fp);
 	memset(strings, 0, 18);
-	fread(strings, 4, 1, fp);//ширина
+	fread(strings, 4, 1, fp);//ГёГЁГ°ГЁГ­Г 
 	width = getsize(strings, 4);
 	memset(strings, 0, 4);
-	fread(strings, 4, 1, fp);//высота
+	fread(strings, 4, 1, fp);//ГўГ»Г±Г®ГІГ 
 	height = getsize(strings, 4);
-	memset(strings, 0, 4);// есть размер картинки
-	fread(strings, 36, 1, fp);//скипаем мусор
+	memset(strings, 0, 4);// ГҐГ±ГІГј Г°Г Г§Г¬ГҐГ° ГЄГ Г°ГІГЁГ­ГЄГЁ
+	fread(strings, 36, 1, fp);//Г±ГЄГЁГЇГ ГҐГ¬ Г¬ГіГ±Г®Г°
 	memset(strings, 0, 36);
 	int** bitmap;
 	bitmap = (int**)malloc(height * sizeof(int));
@@ -131,7 +127,7 @@ int** getbitmap(unsigned char* filename)
 
 
 
-int neighbours(int** bitmap, int x, int y) //x - ширина; y - высота
+int neighbours(int** bitmap, int x, int y) //x - ГёГЁГ°ГЁГ­Г ; y - ГўГ»Г±Г®ГІГ 
 {
 	int result = 0;
 	if (x == width - 1)
